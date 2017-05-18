@@ -13,4 +13,3 @@ class vuelo(object):
     hora = time
     origen = ""
     destino = ""
-
