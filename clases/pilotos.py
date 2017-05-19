@@ -1,6 +1,4 @@
-from tripulacion import tripulacion
+from clases.tripulacion import tripulacion
 
 class piloto(tripulacion):
-
-    def autorizarModelo(self,mod):
-        self.modelosAutorizados.append(mod)
+    pass

@@ -1,11 +1,9 @@
-from personas import persona
+from clases.personas import persona
 
 class pasajero(persona):
-    millas = 0
     VIP = False
     necesidadesEsp = ""
 
-    def cambiarMVN(self,mil,vi,nes):
-        self.millas = mil
+    def cambiarMVN(self,vi,nes):
         self.VIP = vi
         self.necesidadesEsp = nes
