@@ -19,21 +19,21 @@ for item in personas:
         break
 
     elif(lista[0] == "Pasajero"):
-        unPasajero = pasajero
+        unPasajero = pasajero()
         lista = item.split('|')
         unPasajero.agregarPersona(str(lista[1]),str(lista[2]),lista[3],str(lista[4]))
         unPasajero.cambiarMVN(lista[5],str(lista[6]))
         listaPersonas.append(unPasajero)
 
     elif(lista[0] == "Piloto"):
-        unPiloto = piloto
+        unPiloto = piloto()
         lista = item.split('|')
         unPiloto.agregarPersona(str(lista[1]),str(lista[2]),lista[3],str(lista[4]))
         unPiloto.autorizarModelo(lista[5].split(','))
         listaPilotos.append(unPiloto)
 
     elif(lista[0] == "Servicio"):
-        unServicio = serviciosAbordo
+        unServicio = serviciosAbordo()
         lista = item.split('|')
         unServicio.agregarPersona(str(lista[1]), str(lista[2]), lista[3], str(lista[4]))
         unServicio.autorizarModelo(lista[5].split(','))
@@ -47,7 +47,7 @@ for item in aviones:
         break
 
     else:
-        unAvion = avion
+        unAvion = avion()
         lista2 = item.split('|')
         unAvion.agregarAvion(str(lista2[1]),lista2[2],lista2[3])
         listaAviones.append(unAvion)
@@ -59,7 +59,7 @@ for item in vuelos:
         break
 
     else:
-        unVuelo = vuelo
+        unVuelo = vuelo()
         lista3 = item.split('|')
         unVuelo.modificarVuelo(str(lista3[1]),lista3[2],lista3[3],str(lista3[4]),str(lista3[5]))
         unVuelo.agregarPasajero(lista[6].split(','))
