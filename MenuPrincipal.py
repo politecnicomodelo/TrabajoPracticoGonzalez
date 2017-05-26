@@ -125,11 +125,12 @@ def NoMasVuelos(fecha,hora,modelo):
             vuelosTripulante = listaVuelos[vuetri].getlistaTripulantes
             for vuetri2 in vuelosTripulante:
                 if(verPasajeros[vue].getDNI == vuelosTripulante[vuetri2]):
+                    TripulantePorVuelo.append(listaVuelos[vuetri])
         for busfec in TripulantePorVuelo:
             for busbus in TripulantePorVuelo:
                 if (busbus == busfec):
                     continue
-                if(TripulantePorVuelo[busfec] == TripulantePorVuelo[busbus]):
+                if(TripulantePorVuelo[busfec].getFecha == TripulantePorVuelo[busbus].getFecha):
                     solo = True
         if(solo == True):
             print("tripulante: " + verPasajeros[trivue].getDNI + " esta infringiendo la regla de vuelo por dia")
@@ -141,3 +142,12 @@ def PersonasVueloVIP(fecha,hora,modelo):
     for perVIP in verPersonas:
         if(verPersonas[perVIP].getVIP == True):
             verPersonasVIP.append(verPersonas[perVIP])
+    for vipvue in verVuelos:
+        contador = 0
+        verPerPorVue = verVuelos[vipvue].getListaPasajeros
+        for perVIPvue in verPersonasVIP:
+            for ppvbus in verPerPorVue:
+                if(verPersonasVIP[perVIPvue] == verPerPorVue[ppvbus]):
+                    contador = contador + 1
+        print("en el vuelo modelo: " + verVuelos[vipvue].getModelo + " fecha: " + verVuelos[vipvue].getFecha + " hora: " + verVuelos[vipvue].getHora + " tiene " + contador + "pasajeros Vip")
+
