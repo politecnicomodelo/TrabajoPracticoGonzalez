@@ -11,3 +11,15 @@ class persona(object):
         self.apellido = ape
         self.fecha_nac = fec
         self.DNI = dni
+
+    def getNombre(self):
+        return self.nombre
+
+    def getApellido(self):
+        return self.apellido
+
+    def getDNI(self):
+        return self.DNI
+
+    def getFecha_nac(self):
+        return self.fecha_nac

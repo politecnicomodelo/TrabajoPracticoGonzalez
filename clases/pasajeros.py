@@ -7,3 +7,9 @@ class pasajero(persona):
     def cambiarMVN(self,vi,nes):
         self.VIP = vi
         self.necesidadesEsp = nes
+
+    def getVIP(self,vi):
+        return self.VIP
+
+    def getNecesidadesEsp(self,nes):
+        return self.necesidadesEsp

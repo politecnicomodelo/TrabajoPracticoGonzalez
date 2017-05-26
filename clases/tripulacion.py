@@ -5,3 +5,5 @@ class tripulacion(persona):
 
     def autorizarModelo(self,mod):
         self.modelosAutorizados.append(mod)
+
+    def getModeloAutorizado(self):

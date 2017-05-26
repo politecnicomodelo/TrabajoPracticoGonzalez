@@ -26,3 +26,18 @@ class vuelo(object):
         self.hora = hor
         self.origen = ori
         self.destino = des
+
+    def getListaPasajeros(self):
+        return self.listaPasajeros
+
+    def getListaTripulacion(self):
+        return self.listaTripulacion
+
+    def getModelo(self):
+        return self.modelo
+
+    def getFecha(self):
+        return self.fecha
+
+    def getHora(self):
+        return self.hora
