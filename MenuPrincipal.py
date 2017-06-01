@@ -163,7 +163,7 @@ while (true)
         nominaPasajeros()
 
     elif (Input == '2'):
-
+        nominaPasajeros()
     elif (Input == '3'):
 
     elif (Input == '4'):
