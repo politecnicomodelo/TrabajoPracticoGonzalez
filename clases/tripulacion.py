@@ -7,3 +7,4 @@ class tripulacion(persona):
         self.modelosAutorizados.append(mod)
 
     def getModeloAutorizado(self):
+        pass

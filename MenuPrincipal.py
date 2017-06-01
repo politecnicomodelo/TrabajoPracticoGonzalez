@@ -47,7 +47,7 @@ for item in aviones:
     else:
         unAvion = avion()
         lista2 = item.split('|')
-        unAvion.agregarAvion(str(lista2[1]),lista2[2],lista2[3])
+        unAvion.agregarAvion(str(lista2[0]),lista2[1],lista2[2])
         listaAviones.append(unAvion)
 
 vuelos = open("vuelos.dat","r")
@@ -59,27 +59,27 @@ for item in vuelos:
     else:
         unVuelo = vuelo()
         lista3 = item.split('|')
-        unVuelo.modificarVuelo(str(lista3[1]),lista3[2],lista3[3],str(lista3[4]),str(lista3[5]))
-        unVuelo.agregarTripulante(lista[6].split(','))
-        unVuelo.agregarPasajero(lista[7].split(','))
+        unVuelo.modificarVuelo(str(lista3[0]),lista3[1],lista3[2],str(lista3[3]),str(lista3[4]))
+        unVuelo.agregarTripulante(lista[5].split(','))
+        unVuelo.agregarPasajero(lista[6].split(','))
         listaVuelos.append(unVuelo)
 
 def nominaPasajeros(fecha,hora,modelo):
     verPasajeros = 0
     for vue in listaVuelos:
-        if(listaVuelos[vue].getFecha() == fecha && listaVuelos[vue].getHora() == hora && listaVuelos[vue].getModelo() == modelo):
+        if(listaVuelos[vue].getFecha() == fecha and listaVuelos[vue].getHora() == hora and listaVuelos[vue].getModelo() == modelo):
             verPasajeros = listaVuelos[vue].getListaPasajeros()
-    for buscar in verPasajeros
-        for buscarP in listaPersonas
+    for buscar in verPasajeros:
+        for buscarP in listaPersonas:
             if(verPasajeros[buscar] == listaPersonas[buscarP].getDNI()):
                 print(listaPersonas[buscarP].getNombre() + " " + listaPersonas[buscarP].getApellido() + " " + listaPersonas[buscarP].getDNI())
 
 def pasajeroJoven(fecha,hora,modelo):
     verPasajeros = 0
     for vue in listaVuelos:
-        if (listaVuelos[vue].getFecha() == fecha && listaVuelos[vue].getHora() == hora && listaVuelos[vue].getModelo() == modelo):
+        if (listaVuelos[vue].getFecha() == fecha and listaVuelos[vue].getHora() == hora and listaVuelos[vue].getModelo() == modelo):
             verPasajeros = listaVuelos[vue].getListaPasajeros()
-    for buscar in verPasajeros
+    for buscar in verPasajeros:
         pasajeroMasJoven = pasajero()
         if(verPasajeros[buscar].getFecha_nac() > pasajeroMasJoven.getFecha_nac()):
             pasajeroMasJoven = verPasajeros[buscar]
@@ -88,7 +88,7 @@ def tripulacionMinima(fecha,hora,modelo):
     verPasajeros = 0
     cantidadTripulacion = 0
     for vue in listaVuelos:
-        if (listaVuelos[vue].getFecha() == fecha && listaVuelos[vue].getHora() == hora && listaVuelos[vue].getModelo() == modelo):
+        if (listaVuelos[vue].getFecha() == fecha and listaVuelos[vue].getHora() == hora and listaVuelos[vue].getModelo() == modelo):
             verPasajeros = listaVuelos[vue].getListaTripulacioon()
     for buscar in listaAviones:
         if(listaAviones[buscar].getModelo == modelo):
@@ -101,7 +101,7 @@ def personasAutorizadas(fecha,hora,modelo):
     todoBien = True
     verPasajeros = 0
     for vue in listaVuelos:
-        if (listaVuelos[vue].getFecha() == fecha && listaVuelos[vue].getHora() == hora && listaVuelos[vue].getModelo() == modelo):
+        if (listaVuelos[vue].getFecha() == fecha and listaVuelos[vue].getHora() == hora and listaVuelos[vue].getModelo() == modelo):
             verPasajeros = listaVuelos[vue].getListaTripulacioon()
     for pervue in listaTripulacion:
         for per in verPasajeros:
@@ -111,11 +111,11 @@ def personasAutorizadas(fecha,hora,modelo):
                     if(listaAutorizados[modaut] != modelo):
                         todoBien = False
     if(todoBien == True):
-        print("Todo bien,Todo correcto y yo que me alegro")
+        print("Todo bien,todo correcto y yo que me alegro")
     else:
         print("Un tripulante no esta autorizado")
 
-def NoMasVuelos(fecha,hora,modelo):
+def NoMasVuelos():
     vuelosTripulante = []
     verPasajeros = listaTripulacion
     for trivue in verPasajeros:
@@ -133,9 +133,9 @@ def NoMasVuelos(fecha,hora,modelo):
                 if(TripulantePorVuelo[busfec].getFecha == TripulantePorVuelo[busbus].getFecha):
                     solo = True
         if(solo == True):
-            print("tripulante: " + verPasajeros[trivue].getDNI + " esta infringiendo la regla de vuelo por dia")
+            print("Tripulante: " + verPasajeros[trivue].getDNI + " esta infringiendo la regla de vuelo por dia")
 
-def PersonasVueloVIP(fecha,hora,modelo):
+def PersonasVueloVIP():
     verPersonas = listaPersonas
     verVuelos = listaVuelos
     verPersonasVIP = []
@@ -149,5 +149,28 @@ def PersonasVueloVIP(fecha,hora,modelo):
             for ppvbus in verPerPorVue:
                 if(verPersonasVIP[perVIPvue] == verPerPorVue[ppvbus]):
                     contador = contador + 1
-        print("en el vuelo modelo: " + verVuelos[vipvue].getModelo + " fecha: " + verVuelos[vipvue].getFecha + " hora: " + verVuelos[vipvue].getHora + " tiene " + contador + "pasajeros Vip")
+        print("En el vuelo modelo: " + verVuelos[vipvue].getModelo + " Fecha: " + verVuelos[vipvue].getFecha + " Hora: " + verVuelos[vipvue].getHora + " tiene " + contador + "pasajeros Vip")
 
+while (true)
+    Input = input("1- Nomina de personas por vuelo\n"
+                  "2- Pasajero mas joven por vuelo\n"
+                  "3- Vuelos en los cuales no se alcance la tripulacion minima\n"
+                  "4- Vuelos tripulados por personas no autorizadas\n"
+                  "5- Tripulantes que viajen mas de una vez al dia\n"
+                  "6- Personas VIP o con necesidades especiales\n")
+
+    if (Input == '1'):
+        nominaPasajeros()
+
+    elif (Input == '2'):
+
+    elif (Input == '3'):
+
+    elif (Input == '4'):
+
+    elif (Input == '5'):
+
+    elif (Input == '6'):
+
+    else:
+        print("Opcion invalida")
